@@ -1833,6 +1833,8 @@ main (int argc, char **argv) {
   Logs *logs = NULL;
   int quit = 0, ret = 0;
 
+  fprintf (stderr, "HELLO111111\n");
+
   block_thread_signals ();
   setup_sigsegv_handler ();
 
