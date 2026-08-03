@@ -31,7 +31,7 @@ Use the included script to rebuild the project, process
 `/Users/elliott/Desktop/logs/nginx.1/access.log-20260721.log`, and generate
 `/Users/elliott/Desktop/logs/goaccess-report.html` without opening the terminal
 interface. Parsing progress and the processed-record count remain visible in
-the terminal:
+the terminal, followed by resolved, total and pending hostname counts:
 
 ```sh
 ./rebuild-and-run.sh
