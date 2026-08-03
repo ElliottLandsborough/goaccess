@@ -47,6 +47,23 @@ Override the default input and report paths with environment variables:
 LOG_FILE=/path/to/access.log REPORT_FILE=/path/to/report.html ./rebuild-and-run.sh
 ```
 
+Process every `access.log*` file under `nginx.1`, `nginx.2`, and `nginx.3`
+into one HTML report with:
+
+```sh
+./rebuild-and-run.sh --all-logs
+```
+
+The combined report defaults to
+`/Users/elliott/Desktop/logs/goaccess-all-report.html`. Error logs are excluded
+because they do not use the configured Nginx access-log format. Override the
+logs directory or report path with:
+
+```sh
+LOGS_ROOT=/path/to/logs REPORT_FILE=/path/to/all.html \
+	./rebuild-and-run.sh --all-logs
+```
+
 Arguments are passed to GoAccess, so you can override the default log with:
 
 ```sh
