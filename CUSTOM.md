@@ -27,14 +27,27 @@ required to test it.
 
 ## Rebuild and run with one command
 
-Use the included script to rebuild the project and display the custom startup
-message followed by the GoAccess version:
+Use the included script to rebuild the project, process
+`/Users/elliott/Desktop/logs/nginx.1/access.log-20260721.log`, and generate
+`/Users/elliott/Desktop/logs/goaccess-report.html` without opening the terminal
+interface. Parsing progress and the processed-record count remain visible in
+the terminal:
 
 ```sh
 ./rebuild-and-run.sh
 ```
 
-Arguments are passed to GoAccess, so you can process a specific log with:
+The script always enables reverse DNS lookups with
+`--with-output-resolver` and parses the selected Nginx log using the built-in
+`COMBINED` log format.
+
+Override the default input and report paths with environment variables:
+
+```sh
+LOG_FILE=/path/to/access.log REPORT_FILE=/path/to/report.html ./rebuild-and-run.sh
+```
+
+Arguments are passed to GoAccess, so you can override the default log with:
 
 ```sh
 ./rebuild-and-run.sh /path/to/access.log
